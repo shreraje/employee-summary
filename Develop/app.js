@@ -79,6 +79,40 @@ function addManager() {
             buildTeam();
         })
 }
+
+// Function to input for an Engineer role
+
+function addEngineer() {
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "Please enter the full name of an Engineer!"
+
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "Please enter the ID of an Engineer!"
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "Please enter an email address of an Engineer!"
+        },
+        {
+            type: "input",
+            name: "github",
+            message: "Please enter the GitHub username of an Engineer!"
+        }
+    ])
+        .then(input => {
+            const engineer = new Engineer(input.name, input.id, input.email, input.github);
+            team.push(engineer);
+            buildTeam();
+        })
+}
+
 buildTeam();
 
 // Write code to use inquirer to gather information about the development team members,
